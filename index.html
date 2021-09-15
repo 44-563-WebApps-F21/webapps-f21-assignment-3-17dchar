@@ -59,6 +59,28 @@
             </tr>
         </table>
         <hr>
+        <h3>Code Display</h3>
+        <h4>Knuth–Morris–Pratt Algorithm</h4>
+        <blockquote>
+            In computer science, the Knuth–Morris–Pratt string-searching algorithm (or KMP algorithm) 
+            searches for occurrences of a "word" W within a main "text string" S by employing the observation 
+            that when a mismatch occurs, the word itself embodies sufficient information to determine where 
+            the next match could begin, thus bypassing re-examination of previously matched characters.
+        </blockquote>
+        <a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm">Wikipedia Page</a>
+        <h4>Implementation</h4>
+        <pre>
+            vector(int) prefix_function(string s) {
+                int n = (int)s.length();
+                vector(int) pi(n);
+                for (int i = 0; i < n; i++)
+                    for (int k = 0; k <= i; k++)
+                        if (s.substr(0, k) == s.substr(i-k+1, k))
+                            pi[i] = k;
+                return pi;
+            }
+        </pre>
+        <hr>
         <a href="aboutme.html">About Me</a>
     </body>
 </html>
